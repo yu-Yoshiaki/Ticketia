@@ -105,7 +105,7 @@ const TicketCreate: CustomNextPage = () => {
     //   return;
     // },
     // [createDoc, user, mapData]
-    {},[]
+    ()=>{},[]
   );
 
   return (
