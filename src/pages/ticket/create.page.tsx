@@ -19,9 +19,9 @@ const TicketCreate: CustomNextPage = () => {
     formState: { errors },
   } = useForm();
 
-  useEffect(() => {
-    !user && router.push("/auth/login");
-  }, [router, user]);
+  // useEffect(() => {
+  //   !user && router.push("/auth/login");
+  // }, [router, user]);
 
   const [serchAddress, setSerchAddress] = useState("");
 
@@ -62,46 +62,46 @@ const TicketCreate: CustomNextPage = () => {
 
   const onSubmit = useCallback(
     async (e) => {
-      if (user) {
-        const createProduct = async () => {
-          try {
-            const res = await axios.post("/api/createProduct", {
-              productName: e.name,
-              owner: user.uid,
-              unitAmount: e.price,
-            });
-            const result = await res.data;
-            return result;
-          } catch (error) {
-            return error;
-          }
-        };
-        const stripePriceId = await createProduct();
-        if (stripePriceId) {
-          const Data: WriteTicket = {
-            name: e.name,
-            description: e.description,
-            organizer: user?.uid,
-            start: e.start,
-            isAccept: true,
-            priceList: {
-              nomal: {
-                price: e.price,
-                content: "",
-                stock: e.stock,
-              },
-            },
-            address: {
-              address: e.address,
-              postCode: e.postCode,
-              lat: mapData.center.lat,
-              lng: mapData.center.lng,
-            },
-            stripePriceId,
-          };
-          createDoc(Data);
-        }
-      }
+      // if (user) {
+      //   const createProduct = async () => {
+      //     try {
+      //       const res = await axios.post("/api/createProduct", {
+      //         productName: e.name,
+      //         owner: user.uid,
+      //         unitAmount: e.price,
+      //       });
+      //       const result = await res.data;
+      //       return result;
+      //     } catch (error) {
+      //       return error;
+      //     }
+      //   };
+      //   const stripePriceId = await createProduct();
+      //   if (stripePriceId) {
+      //     const Data: WriteTicket = {
+      //       name: e.name,
+      //       description: e.description,
+      //       organizer: user?.uid,
+      //       start: e.start,
+      //       isAccept: true,
+      //       priceList: {
+      //         nomal: {
+      //           price: e.price,
+      //           content: "",
+      //           stock: e.stock,
+      //         },
+      //       },
+      //       address: {
+      //         address: e.address,
+      //         postCode: e.postCode,
+      //         lat: mapData.center.lat,
+      //         lng: mapData.center.lng,
+      //       },
+      //       stripePriceId,
+      //     };
+      //     createDoc(Data);
+      //   }
+      // }
       return;
     },
     [createDoc, user, mapData]
@@ -109,7 +109,7 @@ const TicketCreate: CustomNextPage = () => {
 
   return (
     <div>
-      {user && (
+      {!user && (
         <div className="justify-center md:grid md:grid-cols-3 md:gap-6">
           <div className="mt-5 md:col-span-2 md:mt-0">
             <h3 className="text-lg font-medium leading-6">チケット新規作成</h3>
