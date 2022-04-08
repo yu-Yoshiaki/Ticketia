@@ -12,7 +12,7 @@ import { Layout } from "src/layout";
 const TicketCreate: CustomNextPage = () => {
   const router = useRouter();
   const { user } = useUser();
-  const { createDoc } = useFetchTicket();
+  // const { createDoc } = useFetchTicket();
   const {
     register,
     handleSubmit,
