@@ -4,7 +4,7 @@ import type { CustomNextPage } from "next";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useFetchTicket } from "src/hook/useFetchTicket";
+// import { useFetchTicket } from "src/hook/useFetchTicket";
 import { useUser } from "src/hook/useUser";
 import { Layout } from "src/layout";
 // import type { WriteTicket } from "src/type/ticket";
