@@ -1,5 +1,5 @@
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
-import axios from "axios";
+// import axios from "axios";
 import type { CustomNextPage } from "next";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { useFetchTicket } from "src/hook/useFetchTicket";
 import { useUser } from "src/hook/useUser";
 import { Layout } from "src/layout";
-import type { WriteTicket } from "src/type/ticket";
+// import type { WriteTicket } from "src/type/ticket";
 
 const TicketCreate: CustomNextPage = () => {
   const router = useRouter();
@@ -19,9 +19,9 @@ const TicketCreate: CustomNextPage = () => {
     formState: { errors },
   } = useForm();
 
-  // useEffect(() => {
-  //   !user && router.push("/auth/login");
-  // }, [router, user]);
+  useEffect(() => {
+    user && router.push("/auth/login");
+  }, [router, user]);
 
   const [serchAddress, setSerchAddress] = useState("");
 
@@ -61,7 +61,7 @@ const TicketCreate: CustomNextPage = () => {
   };
 
   const onSubmit = useCallback(
-    async (e) => {
+    // async (e) => {
       // if (user) {
       //   const createProduct = async () => {
       //     try {
@@ -102,9 +102,10 @@ const TicketCreate: CustomNextPage = () => {
       //     createDoc(Data);
       //   }
       // }
-      return;
-    },
-    [createDoc, user, mapData]
+    //   return;
+    // },
+    // [createDoc, user, mapData]
+    {},[]
   );
 
   return (
