@@ -1,5 +1,4 @@
 import { loadStripe } from "@stripe/stripe-js";
-import axios from "axios";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import type { CustomNextPage, GetStaticPaths, GetStaticProps } from "next";
