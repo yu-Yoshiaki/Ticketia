@@ -25,8 +25,9 @@ export const Checkout: VFC<Checkout> = (props) => {
   }, []);
 
   return (
+
     <div className="pb-5 border border-gray">
-      <p className="p-2 mb-5 w-full text-left bg-skyblue">配信</p>
+      {prices ? <div><p className="p-2 mb-5 w-full text-left bg-skyblue">配信</p>
       <h3 className="px-3 mb-10 text-xl font-bold text-left">{props.name}</h3>
       <div className="flex justify-between mr-1 mb-16 ml-3">
         <p className="py-1 px-2 w-[60px] text-sm bg-pink rounded-full ">
@@ -52,7 +53,8 @@ export const Checkout: VFC<Checkout> = (props) => {
         >
           チケット購入
         </button>
-      </form>
+      </form></div>:"Loding..."}
+      
     </div>
   );
 };
