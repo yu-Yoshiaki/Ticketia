@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { VFC } from "react";
-import type { ReadPrice, ReadTicket } from "src/type/ticket";
+import type { ReadTicket } from "src/type/ticket";
 
 import { Address } from "./Address";
 import { Checkout } from "./Checkout";

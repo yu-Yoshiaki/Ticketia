@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import type { CustomNextPage, GetStaticPaths, GetStaticProps } from "next";
 import { Layout } from "src/layout";
 import { app, ticketConverter } from "src/lib/firebase";
-import type { ReadPrice, ReadTicket } from "src/type/ticket";
+import type { ReadTicket } from "src/type/ticket";
 
 import { DetailPageLayout } from "./layout/DetailPageLayout";
 

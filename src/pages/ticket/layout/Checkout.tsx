@@ -1,8 +1,8 @@
+import axios from "axios";
 import type { VFC } from "react";
 import type { ReadPrice } from "src/type/ticket";
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from 'next/router';
-import axios from "axios";
 
 type Checkout = {
   name: string;
