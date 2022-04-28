@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useRouter } from 'next/router';
-import type { VFC } from "react";
-import { useCallback, useEffect, useState } from "react";
 
+import { useCallback, useEffect, useState } from "react";
+import type { VFC } from "react";
 import type { ReadPrice } from "src/type/ticket";
 
 
