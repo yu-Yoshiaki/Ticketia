@@ -1,13 +1,28 @@
 import type { VFC } from "react";
 import type { ReadPrice } from "src/type/ticket";
+import { useCallback, useEffect, useState } from "react";
+import { useRouter } from 'next/router';
 
 type Checkout = {
   name: string;
-  amount: ReadPrice["unitAmount"];
-  priceId: ReadPrice["id"];
 };
 
 export const Checkout: VFC<Checkout> = (props) => {
+  const router = useRouter();
+  const [prices, setPrices] = useState<ReadPrice[]>();
+  const { id } = router.query;
+
+  const fetchPrices = useCallback(async () => {
+    const res = await axios.get(`/api/fb/price/${id}/get`);
+    const prices: ReadPrice[] = await res.data;
+    setPrices(prices);
+  }, [id]);
+
+  useEffect(() => {
+    fetchPrices();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="pb-5 border border-gray">
       <p className="p-2 mb-5 w-full text-left bg-skyblue">配信</p>
@@ -17,12 +32,12 @@ export const Checkout: VFC<Checkout> = (props) => {
           販売中
         </p>
         <p className="text-2xl font-bold text-right">
-          {props.amount}円<span className="text-sm">（税込）</span>
+          {prices[0].unitAmount}円<span className="text-sm">（税込）</span>
         </p>
       </div>
 
       <form
-        action={`/api/checkout/${props.priceId}`}
+        action={`/api/checkout/${prices[0].id}`}
         method="POST"
         // onSubmit={handleSubmit}
         className="flex justify-center items-center"

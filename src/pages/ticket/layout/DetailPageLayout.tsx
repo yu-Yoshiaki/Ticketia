@@ -10,7 +10,6 @@ import { Overview } from "./Overview";
 type DetailPageLayout = {
   ticket: ReadTicket;
   test: boolean;
-  prices?: ReadPrice[];
 };
 
 export const DetailPageLayout: VFC<DetailPageLayout> = (props) => {
@@ -32,13 +31,11 @@ export const DetailPageLayout: VFC<DetailPageLayout> = (props) => {
             description={props.ticket.description}
           />
 
-          {props.prices && (
+         
             <Checkout
               name={props.ticket.name}
-              amount={props.prices[0].unitAmount}
-              priceId={props.prices[0].id}
+             
             />
-          )}
 
           {props.ticket.metadata.address && (
             <Address data={props.ticket.metadata} />
