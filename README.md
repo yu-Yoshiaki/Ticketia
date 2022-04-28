@@ -17,6 +17,5 @@
 ## バックエンド
 
 - Firebase
-- Supabase
 - Stripe
 - Vercel
